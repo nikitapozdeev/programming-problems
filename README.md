@@ -5,3 +5,4 @@
 |    My Solutions  | 
 |:-----------------:|
 | [Codewars](https://github.com/crabn3bula/programming-problems/tree/master/codewars) |
+| [LeetCode](https://github.com/crabn3bula/programming-problems/tree/master/leetcode) |
