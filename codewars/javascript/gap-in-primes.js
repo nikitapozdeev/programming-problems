@@ -44,19 +44,48 @@
     https://en.wikipedia.org/wiki/Prime_gap
 */
 
-function list(names){
-  const lastIndex = names.length - 1;
-  let result = '';
+function gap(g, m, n) {
+  function isPrime(number) {
+    if (number < 2) {
+      return false; 
+    }
+    
+    if (number % 2 === 0) {
+      return number === 2;
+    } 
+    
+    const root = Math.trunc(Math.sqrt(number));
+    for (let i = 3; i <= root; i = i + 2) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+    
+    return true;
+  }
   
-  for (let i = 0; i <= lastIndex; i++) {
-    const { name } = names[i]
-    if (i === 0) {
-      result += name;
-    } else if (i === lastIndex) {
-      result += ` & ${name}`
-    } else {
-      result += `, ${name}`
+  const primes = [];
+  let gap = 0;
+  
+  for (let i = m; i <= n && primes.length < 2; i++) {
+    const primesLen = primes.length;
+    if (isPrime(i)) {
+      if (primesLen === 0 || (primesLen > 0 && gap === g)) {
+        primes.push(i);
+        gap++;
+      } else {
+        primes.pop();
+        primes.push(i);
+        gap = 1;
+      }
+    } else {  
+      if (primesLen > 0) {
+        gap++;
+      }
     }
   }
-  return result;
+  
+  return primes.length > 1 
+    ? primes 
+    : null;
 }
