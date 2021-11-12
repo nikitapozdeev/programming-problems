@@ -2,6 +2,6 @@
 
 |    Programming Language  |    Kata Count  | 
 |----------|:-------------:|
-| [JavaScript](https://github.com/nikitapozdeev/programming-problems/tree/master/codewars/javascript) | 45 |
+| [JavaScript](https://github.com/nikitapozdeev/programming-problems/tree/master/codewars/javascript) | 46 |
 
 [My CodeWars profile](https://www.codewars.com/users/crabn3bula)
