@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 
 const input = fs.readFileSync('../input.txt', 'utf-8');
 const commands = input.split('\n').map(str => {
