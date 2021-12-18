@@ -95,14 +95,15 @@ class Cell {
 // construct number
 const numbers = arr[0].split(',').map(Number);
 
-// construct boards
-const boards = [];
-for (let i = 1; i < arr.length; i++) {
-  const board = new Board(arr[i]);
-  boards.push(board);
-}
-
+// part one
 {
+  // construct boards
+  const boards = [];
+  for (let i = 1; i < arr.length; i++) {
+    const board = new Board(arr[i]);
+    boards.push(board);
+  }
+
   let wonNumber;
   let wonBoard;
   outerLoop:
@@ -118,5 +119,31 @@ for (let i = 1; i < arr.length; i++) {
     }
 
   console.log(`Final score is ${wonNumber * wonBoard.unmarkedSum}`);
+}
+
+// part two
+{
+  // construct boards
+  let boards = [];
+  for (let i = 1; i < arr.length; i++) {
+    const board = new Board(arr[i]);
+    boards.push(board);
+  }
+
+  let lastWonNumber;
+  let lastWonBoard;
+  outerLoop:
+    for (let num of numbers) {
+      boards = boards.filter(board => !board.isFilled);
+      for (let board of boards) {
+        board.mark(num);
+        if (board.isFilled) {
+          lastWonBoard = board;
+          lastWonNumber = num;
+        }
+      }
+    }
+
+  console.log(`Final score is ${lastWonNumber * lastWonBoard.unmarkedSum}`);
 }
 
