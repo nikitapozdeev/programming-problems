@@ -1,5 +1,5 @@
 /**
- * https://leetcode.com/explore/learn/card/fun-with-arrays/521/introduction/3240/
+ * https://leetcode.com/problems/squares-of-a-sorted-array/
  */
 
 /**
