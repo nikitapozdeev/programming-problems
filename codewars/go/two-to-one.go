@@ -19,19 +19,19 @@ package kata
 import "sort"
 
 func TwoToOne(s1 string, s2 string) string {
-  var r []rune
-  seen := make(map[rune]bool)
-  
-  for _, char := range s1 + s2 {
-    if _, ok := seen[char]; !ok {
-      seen[char] = true
-      r = append(r, char)
-    }
-  }
-  
-  sort.Slice(r, func(i, j int) bool {
-    return r[i] < r[j]
-  })
-  
-  return string(r)
+	var r []rune
+	seen := make(map[rune]bool)
+
+	for _, char := range s1 + s2 {
+		if _, ok := seen[char]; !ok {
+			seen[char] = true
+			r = append(r, char)
+		}
+	}
+
+	sort.Slice(r, func(i, j int) bool {
+		return r[i] < r[j]
+	})
+
+	return string(r)
 }

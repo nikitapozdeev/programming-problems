@@ -9,9 +9,9 @@
 package kata
 
 func ReverseSeq(n int) []int {
-  arr := make([]int, n)
-  for i:= 0; i < n; i++ {
-    arr[i] = n - i
-  }
-  return arr
+	arr := make([]int, n)
+	for i := 0; i < n; i++ {
+		arr[i] = n - i
+	}
+	return arr
 }
