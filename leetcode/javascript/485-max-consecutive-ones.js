@@ -6,19 +6,18 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findMaxConsecutiveOnes = function (nums) {
-  let max = 0;
-  let maxBuf = 0;
-  const capacity = nums.length;
-
-  for (let i = 0; i <= capacity; ++i) {
+ var findMaxConsecutiveOnes = function(nums) {
+  let totalMax = 0;
+  let windowMax = 0;
+  
+  for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 1) {
-      maxBuf++;
-    } else if (nums[i] === 0 || i === capacity) {
-      max = maxBuf > max ? maxBuf : max;
-      maxBuf = 0;
+      windowMax++;
+    } else if (nums[i] === 0) {
+      windowMax = 0;
     }
+    totalMax = Math.max(totalMax, windowMax);
   }
-
-  return max;
+  
+  return totalMax;
 };
