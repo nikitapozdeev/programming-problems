@@ -8,18 +8,11 @@
  * @return {number}
  */
  var removeElement = function(nums, val) {
-  let low = 0;
-  let high = nums.length;
-  while (low < high) {
-    if (nums[low] === val) {
-      if (nums[high - 1] !== val) {
-        nums[low] = nums[high - 1];
-      }
-      high--;
-    } else {
-      low++;
+  let addPtr = 0;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== val) {
+      nums[addPtr++] = nums[i];
     }
   }
-
-  return high;
+  return addPtr;
 };
