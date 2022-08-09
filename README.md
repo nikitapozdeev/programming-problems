@@ -7,3 +7,4 @@
 | [Codewars](https://github.com/nikitapozdeev/programming-problems/tree/master/codewars) |
 | [LeetCode](https://github.com/nikitapozdeev/programming-problems/tree/master/leetcode) |
 | [Advent-Of-Code](https://github.com/nikitapozdeev/programming-problems/tree/master/advent-of-code) |
+| [Courses](https://github.com/nikitapozdeev/programming-problems/tree/master/courses) |
