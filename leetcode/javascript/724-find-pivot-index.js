@@ -18,13 +18,11 @@
   }
   
   let left = 0;
-  let right = 0;
   for (let i = 0; i < len; i++) {
-    left += (nums[i - 1] || 0);
-    right = total - left - nums[i];
-    if (left === right) {
+    if (left === total - left - nums[i]) {
       return i;
     }
+    left += nums[i];
   }
   return -1;
 };
