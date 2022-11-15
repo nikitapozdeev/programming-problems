@@ -7,7 +7,7 @@
  * @param {string} t
  * @return {boolean}
  */
- var isIsomorphic = function(s, t) {
+var isIsomorphic = function(s, t) {
   const mapST = {};
   const mapTS = {};
   
