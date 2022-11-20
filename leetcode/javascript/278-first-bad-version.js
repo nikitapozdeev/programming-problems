@@ -16,7 +16,7 @@
  * @param {function} isBadVersion()
  * @return {function}
  */
-var solution = function(isBadVersion) {
+ var solution = function(isBadVersion) {
   /**
    * @param {integer} n Total versions
    * @return {integer} The first bad version
@@ -25,10 +25,10 @@ var solution = function(isBadVersion) {
     let low = 1;
     let high = n;
     
-    while (low < high) {
+    while (low <= high) {
       const mid = Math.floor((low + high) / 2);
       if (isBadVersion(mid)) {
-        high = mid;
+        high = mid - 1;
       } else {
         low = mid + 1;
       }
