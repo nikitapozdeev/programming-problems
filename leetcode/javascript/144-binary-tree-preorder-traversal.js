@@ -15,6 +15,10 @@
  * @return {number[]}
  */
 var preorderTraversal = function(root) {
+  return iterative(root);
+};
+
+const recursive = (root) => {
   const answer = [];
 
   const traverse = (node) => {
@@ -29,5 +33,28 @@ var preorderTraversal = function(root) {
 
   traverse(root);
   return answer;
-};
+}
 
+const iterative = (root) => {
+  if (!root) {
+    return [];
+  }
+
+  const answer = [];
+  const stack = [root];
+  
+  while (stack.length > 0) {
+    const node = stack.pop();
+    answer.push(node.val);
+
+    if (node.right) {
+      stack.push(node.right);
+    }
+
+    if (node.left) {
+      stack.push(node.left);
+    }
+  }
+
+  return answer;
+}
