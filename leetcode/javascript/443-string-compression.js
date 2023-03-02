@@ -7,25 +7,23 @@
  * @return {number}
  */
 var compress = function(chars) {
-  let [prev] = chars;
   let count = 1;
-  let insertIndex = 1; 
+  let insertIndex = 0; 
   for (let i = 1; i <= chars.length; i++) {
-    if (chars[i] === prev) {
+    if (chars[i] === chars[i - 1]) {
       count++;
     } else  {
-      chars[insertIndex - 1] = prev;
+      chars[insertIndex] = chars[i - 1];
+      insertIndex++;
       if (count > 1) {
         for (const char of String(count)) {
           chars[insertIndex] = char;
           insertIndex++;
         }
       } 
-      insertIndex++;
       count = 1;
     }
-    prev = chars[i];
   }
 
-  return insertIndex - 1;
+  return insertIndex;
 };
