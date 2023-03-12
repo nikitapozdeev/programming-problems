@@ -17,15 +17,8 @@
 var mergeTwoLists = function(list1, list2) {
   const dummy = new ListNode();
   let current = dummy;
-  while (list1 !== null || list2 !== null) {
-    // that's really dumb and ugly
-    if (list1 === null) {
-      current.next = list2;
-      list2 = list2.next;
-    } else if (list2 === null) {
-      current.next = list1;
-      list1 = list1.next;
-    } else if (list1.val <= list2.val) {
+  while (list1 && list2) {
+    if (list1.val < list2.val) {
       current.next = list1;
       list1 = list1.next;
     } else {
@@ -34,5 +27,14 @@ var mergeTwoLists = function(list1, list2) {
     }
     current = current.next;
   }
+
+  if (list1) {
+    current.next = list1;
+  }
+
+  if (list2) {
+    current.next = list2;
+  }
+  
   return dummy.next;
 };
