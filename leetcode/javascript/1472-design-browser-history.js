@@ -7,7 +7,8 @@
  */
 var BrowserHistory = function(homepage) {
   this.history = [homepage];
-  this.historyPtr = 0;
+  this.historyCurrentPtr = 0;
+  this.historyLastPtr = 0;
 };
 
 /** 
@@ -15,9 +16,13 @@ var BrowserHistory = function(homepage) {
  * @return {void}
  */
 BrowserHistory.prototype.visit = function(url) {
-  this.history.splice(this.historyPtr + 1);
-  this.history.push(url);
-  this.historyPtr++;
+  this.historyCurrentPtr++;
+  if (this.historyCurrentPtr > this.history.length - 1) {
+    this.history.push(url);
+  } else {
+    this.history[this.historyCurrentPtr] = url;
+  }
+  this.historyLastPtr = this.historyCurrentPtr;
 };
 
 /** 
@@ -25,8 +30,8 @@ BrowserHistory.prototype.visit = function(url) {
  * @return {string}
  */
 BrowserHistory.prototype.back = function(steps) {
-  this.historyPtr = Math.max(0, this.historyPtr - steps);
-  return this.history[this.historyPtr];
+  this.historyCurrentPtr = Math.max(0, this.historyCurrentPtr - steps);
+  return this.history[this.historyCurrentPtr];
 };
 
 /** 
@@ -34,8 +39,8 @@ BrowserHistory.prototype.back = function(steps) {
  * @return {string}
  */
 BrowserHistory.prototype.forward = function(steps) {
-  this.historyPtr = Math.min(this.history.length - 1, this.historyPtr + steps);
-  return this.history[this.historyPtr];
+  this.historyCurrentPtr = Math.min(this.historyLastPtr, this.historyCurrentPtr + steps);
+  return this.history[this.historyCurrentPtr];
 };
 
 /** 
