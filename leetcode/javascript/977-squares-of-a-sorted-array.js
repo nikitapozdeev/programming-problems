@@ -3,26 +3,27 @@
  */
 
 /**
+ * Time: O(n)
+ * Memory: O(n)
  * @param {number[]} nums
  * @return {number[]}
  */
 var sortedSquares = function (nums) {
   let start = 0;
   let end = nums.length - 1;
-  let iter = end;
+  let i = end;
+  const res = new Array(nums.length);
 
-  // the object is probably faster than an array
-  const res = {};
-  while (iter >= 0) {
+  while (start <= end) {
     if (Math.abs(nums[start]) > Math.abs(nums[end])) {
-      res[iter] = nums[start] ** 2;
+      res[i] = nums[start] ** 2;
       start++;
     } else {
-      res[iter] = nums[end] ** 2;
+      res[i] = nums[end] ** 2;
       end--;
     }
-    iter--;
+    i--;
   }
-
-  return Object.values(res);
+  
+  return res;
 };
