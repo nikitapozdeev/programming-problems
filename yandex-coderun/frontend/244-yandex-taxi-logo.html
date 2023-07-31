@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'unsafe-inline' 'self'"/>
+        <style>
+            div {
+                width: 192px;
+                height: 192px;
+            }
+        </style>
+        <style>
+            div {
+                width: 192px;
+                height: 192px;
+                background: linear-gradient(145deg, #fcdd2e, #fcb600);
+                border-radius: 36px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            div::before {
+                content: "";
+                background-color: #f5f4f0;
+                background: 
+                    linear-gradient(178deg, rgba(0, 0, 0 ,0.18) 0%, #f5f4f0 7%), 
+                    linear-gradient(#f5f4f0, #f5f4f0);
+                display: block;
+                height: 96px;
+                width: 96px;
+                position: absolute;
+                top: 50%;
+            }
+
+            div::after {
+                content: "";
+                background-color: #000;
+                display: block;
+                height: 96px;
+                width: 96px;
+                position: absolute;
+                right: 0;
+                top: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>

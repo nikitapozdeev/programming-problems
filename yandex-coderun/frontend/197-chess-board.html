@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+style-src 'unsafe-inline' 'self'"/>
+        <style>
+            div {
+                width: 180px;
+                height: 180px;
+            }
+
+            div {
+                position: relative;
+                width: 180px;
+                height: 180px;
+                background: conic-gradient(
+                  #654430 0.25turn,
+                  #f7ebcc 0.25turn 0.5turn,
+                  #654430 0.5turn 0.75turn,
+                  #f7ebcc 0.75turn
+                ) top left / 100% 100% repeat;
+            }
+
+            div::before, div::after {
+              content: "";
+              position: absolute;
+              width: 56px;
+              height: 56px;
+              border-radius: 50%;
+              box-shadow:
+                inset 0px 0px 0 5px #5f5d5e,
+                inset 0px 0px 0 8px #252324;
+              background-color: #5f5d5e;
+            }
+
+            div::before {
+              left: calc(25% - 28px);
+              top: calc(25% - 28px);
+            }
+
+            div::after {
+              left: calc(75% - 28px);
+              top: calc(75% - 28px);
+            }
+        </style>
+        <link rel="stylesheet" href="solution.css">
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>
