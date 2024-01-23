@@ -22,7 +22,7 @@ var smallestSufficientTeam = function(req_skills, people) {
        personSkills[i] |= 1 << skillIdMap[skill];
     }
   }
-console.log(peopleCount)
+
   const dp = new Array(2 ** skillsCount).fill(BigInt(2 ** peopleCount) - 1n);
   dp[0] = 0;
 
@@ -30,7 +30,7 @@ console.log(peopleCount)
     for (let j = 0; j < peopleCount; j++) {
       smallerSkills = i & ~personSkills[j];
       if (smallerSkills !== i) {
-        peopleSet = BigInt(dp[smallerSkills]) | BigInt(2 ** j);
+        const peopleSet = BigInt(dp[smallerSkills]) | BigInt(2 ** j);
         if (countBits(peopleSet) < countBits(dp[i])) {
           dp[i] = peopleSet;
         }
