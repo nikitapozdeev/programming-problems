@@ -16,21 +16,17 @@
  * @return {boolean}
  */
 var isSameTree = function(p, q) {
-  return dfs(p, q);
-};
-
-const dfs = (nodeA, nodeB) => {
-  if (!nodeA && !nodeB) {
+  if (!p && !q) {
     return true;
   }
 
-  if (!nodeA || !nodeB) {
+  if (!p || !q) {
     return false;
   }
 
-  if (nodeA.val !== nodeB.val) {
-    return false;
+  if (p.val !== q.val) {
+    return false
   }
 
-  return dfs(nodeA.left, nodeB.left) && dfs(nodeA.right, nodeB.right);
-}
+  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+};
