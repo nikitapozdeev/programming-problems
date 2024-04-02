@@ -12,12 +12,12 @@ var isIsomorphic = function(s, t) {
   const mapTS = {};
   
   for (let i = 0; i < s.length; i++) {
-    if (!mapST[s[i]] && !mapTS[t[i]]) {
-      mapST[s[i]] = t[i];
-      mapTS[t[i]] = s[i];
-    } else if (mapST[s[i]] !== t[i] || mapTS[t[i]] !== s[i]) {
+    if ((s[i] in mapST && mapST[s[i]] !== t[i]) || (t[i] in mapTS && mapTS[t[i]] !== s[i])) {
       return false;
     }
+
+    mapST[s[i]] = t[i];
+    mapTS[t[i]] = s[i];
   }
   return true;
 };
