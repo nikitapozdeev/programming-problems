@@ -2,7 +2,7 @@
 
 |    Programming Language  |    Problems Count  | 
 |----------|:-------------:|
-| [JavaScript](https://github.com/nikitapozdeev/programming-problems/tree/master/leetcode/javascript) | 538 | 
+| [JavaScript](https://github.com/nikitapozdeev/programming-problems/tree/master/leetcode/javascript) | 539 | 
 | [Go](https://github.com/nikitapozdeev/programming-problems/tree/master/leetcode/go) | 1 | 
 | [C](https://github.com/nikitapozdeev/programming-problems/tree/master/leetcode/c) | 4 | 
 
