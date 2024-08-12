@@ -16,7 +16,6 @@ var KthLargest = function(k, nums) {
   while (this.heap.size() > k) {
     this.heap.dequeue();
   }
-  console.log(this.heap)
 };
 
 /** 
