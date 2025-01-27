@@ -14,7 +14,7 @@
  * @return {ListNode}
  */
 var mergeKLists = function(lists) {
-  if (lists.length === 0) {
+  if (!lists.length) {
     return null;
   }
 
@@ -47,10 +47,10 @@ const merge = (listA, listB) => {
   if (listA) {
     curr.next = listA;
   }
-  
+
   if (listB) {
     curr.next = listB;
   }
 
   return dummy.next;
-};
+}

@@ -9,20 +9,17 @@
  *     this.next = (next===undefined ? null : next)
  * }
  */
-
-// iterative
 /**
  * @param {ListNode} head
  * @return {ListNode}
  */
 var reverseList = function(head) {
   let prev = null;
-  let curr = head;
-  while (curr !== null) {
-    const tmp = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = tmp;
+  while (head) {
+    const tmp = head.next;
+    head.next = prev;
+    prev = head;
+    head = tmp;
   }
   return prev;
 };
