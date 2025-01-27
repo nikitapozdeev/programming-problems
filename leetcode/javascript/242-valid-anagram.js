@@ -3,6 +3,8 @@
  */
 
 /**
+ * Time: O(N + K)
+ * Memory: O(N)
  * @param {string} s
  * @param {string} t
  * @return {boolean}
@@ -11,18 +13,18 @@ var isAnagram = function(s, t) {
   if (s.length !== t.length) {
     return false;
   }
-  
-  const map = {};
-  for (const char of t) {
-    map[char] = map[char] ? map[char] + 1 : 1;
-  }
-  
+
+  const frequency = {};
   for (const char of s) {
-    if (map[char] > 0) {
-      map[char]--;
-    } else {
+    frequency[char] = (frequency[char] || 0) + 1;
+  }
+
+  for (const char of t) {
+    if (!frequency[char]) {
       return false;
     }
+    frequency[char]--;
   }
+
   return true;
 };

@@ -7,15 +7,23 @@
  * @param {number} target
  * @return {number[]}
  */
- var twoSum = function(numbers, target) {
-  const remainders = {};
-  let remainder;
-  
-  for (let i = 0; i < numbers.length; i++) {
-    remainder = remainders[numbers[i]];
-    if (remainder) {
-      return [remainder, i + 1];
+var twoSum = function(numbers, target) {
+  let left = 0;
+  let right = numbers.length - 1;
+
+  while (left < right) {
+    let sum = numbers[left] + numbers[right];
+
+    if (sum === target) {
+      return [left + 1, right + 1];
     }
-    remainders[target - numbers[i]] = i + 1;
+
+    if (sum < target) {
+      left++;
+    }
+
+    if (sum > target) {
+      right--;
+    }
   }
 };
