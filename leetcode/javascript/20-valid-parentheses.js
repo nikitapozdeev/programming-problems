@@ -6,24 +6,24 @@
  * @param {string} s
  * @return {boolean}
  */
- var isValid = function(s) {  
-  const stack = [];
+var isValid = function(s) {  
   const map = {
-    '{': '}',
     '(': ')',
+    '{': '}',
     '[': ']'
   };
-  
-  for (let i = 0; i < s.length; i++) {
-      if (s[i] === '{' || s[i] === '(' || s[i] === '[') {
-        stack.push(s[i]);
-      } else {
-        const popped = stack.pop();
-        if (s[i] !== map[popped]) {
-          return false;
-        }
+  const stack = [];
+
+  for (const char of s) {
+    if (map[char]) {
+      stack.push(char);
+    } else {
+      const popped = stack.pop();
+      if (map[popped] !== char) {
+        return false;
       }
+    }
   }
-  
+
   return stack.length === 0;
 };
