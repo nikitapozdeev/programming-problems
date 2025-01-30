@@ -8,17 +8,17 @@
  */
 var merge = function(intervals) {
   intervals.sort((a, b) => a[0] - b[0]);
-  const answer = [intervals[0]];
+  const output = [intervals[0]];
 
-  for (const [from, to] of intervals.slice(1)) {
-    const lastIndex = answer.length - 1;
-    const lastTo = answer[lastIndex][1];
-    if (from <= lastTo) {
-      answer[lastIndex][1] = Math.max(to, lastTo);
+  for (const [start, end] of intervals.slice(1)) {
+    const lastIndex = output.length - 1;
+    const lastEnd = output[lastIndex][1];
+    if (start <= lastEnd) {
+      output[lastIndex][1] = Math.max(lastEnd, end);
     } else {
-      answer.push([from, to]);
+      output.push([start, end]);
     }
   }
 
-  return answer;
+  return output;
 };

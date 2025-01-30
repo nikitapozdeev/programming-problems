@@ -45,3 +45,34 @@ var topKFrequent = function(nums, k) {
 
   return Array.from({ length: k }, () => heap.dequeue());
 };
+
+/**
+ * Bucket sort O(N)
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+var topKFrequent = function(nums, k) {
+  const frequency = {};
+  for (const num of nums) {
+    frequency[num] = (frequency[num] || 0) + 1;
+  }
+
+  const bucket = new Array(nums.length);
+  for (const [num, freq] of Object.entries(frequency)) {
+    if (!bucket[freq]) {
+      bucket[freq] = [];
+    }
+
+    bucket[freq].push(Number(num));
+  }
+
+  const output = [];
+  for (let i = bucket.length - 1; i >= 0 && k > 0; i--) {
+    while (bucket[i]?.length && k--) {
+      output.push(bucket[i].pop());
+    }
+  }
+
+  return output;
+};
